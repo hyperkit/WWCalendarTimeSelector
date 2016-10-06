@@ -884,6 +884,7 @@ open class WWCalendarTimeSelector: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func cancel() {
+        dismiss()
         let picker = self
         let del = delegate
         if optionSelectionType == .single {
@@ -892,10 +893,10 @@ open class WWCalendarTimeSelector: UIViewController, UITableViewDelegate, UITabl
         else {
             del?.WWCalendarTimeSelectorCancel?(picker, dates: multipleDates)
         }
-        dismiss()
     }
     
     @IBAction func done() {
+        dismiss()
         let picker = self
         let del = delegate
         switch optionSelectionType {
@@ -906,7 +907,6 @@ open class WWCalendarTimeSelector: UIViewController, UITableViewDelegate, UITabl
         case .range:
             del?.WWCalendarTimeSelectorDone?(picker, dates: optionCurrentDateRange.array)
         }
-        dismiss()
     }
     
     fileprivate func dismiss() {
